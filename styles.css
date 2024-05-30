@@ -14,7 +14,7 @@ header {
     background-image: url('img/vazio.jpg'); /* Referenciando a imagem local */
     background-size: cover; /* Ajusta a imagem para cobrir todo o header */
     background-position: center; /* Centraliza a imagem */
-    padding: 2%;
+    padding: 3%;
     padding-bottom: 2%; /* Espaço extra para afastar as opções de navegação */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
     text-align: center;
