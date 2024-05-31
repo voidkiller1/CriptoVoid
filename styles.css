@@ -14,9 +14,9 @@ header {
     background-image: url('img/vazio.jpg'); /* Imagem de fundo */
     background-size: cover; /* Cobre toda a área do cabeçalho */
     background-position: center; /* Centraliza a imagem de fundo */
-    padding: 3%; /* Espaçamento interno */
+    padding: 10%; /* Espaçamento interno */
     padding-bottom: 2%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Sombra do cabeçalho */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.6); /* Sombra do cabeçalho */
     text-align: center; /* Centraliza o texto */
     position: relative;
     color: #ffffff;
@@ -50,17 +50,34 @@ nav ul {
 
 nav ul li {
     display: inline; /* Exibe os itens da lista em linha */
-    margin-right: 2%;
+    margin-right: 10%;
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: #6600cc; /* Roxo */
+    }
+    75% {
+        background-color: #0000ff; /* Azul */
+    }
+    100% {
+        background-color: #6600cc; /* Volta para Roxo */
+    }
 }
 
 nav ul li a {
     text-decoration: none; /* Remove sublinhado */
     color: #fff;
-    padding: 1% 1.5%;
+    padding: 5% 5%;
     border-radius: 5px;
-    background-color: #6600cc;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transições */
+    animation: colorChange 2s infinite; /* Animação */
+    transition: transform 0.3s ease; /* Transições */
 }
+
+nav ul li a:hover {
+    transform: scale(1.1); /* Efeito de hover */
+}
+
 
 nav ul li a:hover {
     background-color: #7B68EE;
