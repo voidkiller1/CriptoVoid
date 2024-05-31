@@ -1,55 +1,58 @@
+/* Estilos globais */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif; /* Define a fonte para o site */
     margin: 0;
     padding: 0;
-    background: #110022;
-    color: #ffffff;
-    overflow-x: hidden;
+    background: #110022; /* Define o fundo da página */
+    color: #ffffff; /* Define a cor do texto */
+    overflow-x: hidden; /* Evita rolagem horizontal */
 }
 
+/* Estilo do cabeçalho */
 header {
     background-color: #220044;
-    background-image: url('img/vazio.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 3%;
+    background-image: url('img/vazio.jpg'); /* Imagem de fundo */
+    background-size: cover; /* Cobre toda a área do cabeçalho */
+    background-position: center; /* Centraliza a imagem de fundo */
+    padding: 3%; /* Espaçamento interno */
     padding-bottom: 2%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Sombra do cabeçalho */
+    text-align: center; /* Centraliza o texto */
     position: relative;
     color: #ffffff;
 }
 
 header h1 {
     margin: 0;
-    font-size: 3.5vw;
+    font-size: 3.5vw; /* Fonte relativa ao viewport */
     margin-bottom: 1%;
-    animation: emergeBlackHole 5s infinite;
+    animation: emergeBlackHole 5s infinite; /* Animação */
     transform-origin: center;
 }
 
+/* Estilos de navegação */
 nav {
     text-align: center;
 }
 
 nav ul {
-    list-style-type: none;
+    list-style-type: none; /* Remove marcadores da lista */
     padding: 0;
     margin: 0;
 }
 
 nav ul li {
-    display: inline;
+    display: inline; /* Exibe os itens da lista em linha */
     margin-right: 2%;
 }
 
 nav ul li a {
-    text-decoration: none;
+    text-decoration: none; /* Remove sublinhado */
     color: #fff;
     padding: 1% 1.5%;
     border-radius: 5px;
     background-color: #6600cc;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transições */
 }
 
 nav ul li a:hover {
@@ -57,6 +60,7 @@ nav ul li a:hover {
     transform: scale(1.1);
 }
 
+/* Estilos principais */
 main {
     padding: 2%;
 }
@@ -77,13 +81,13 @@ section.content {
 .card h2 {
     margin-top: 0;
     color: #fff;
-    font-size: 2vw;
+    font-size: 2vw; /* Fonte relativa ao viewport */
 }
 
 .card h3 {
     margin-top: 0;
     color: #fff;
-    font-size: 1.5vw;
+    font-size: 1.5vw; /* Fonte relativa ao viewport */
 }
 
 .card p {
@@ -96,6 +100,7 @@ section.content {
     padding-left: 2%;
 }
 
+/* Link de registro */
 a.register-link {
     display: inline-block;
     text-align: center;
@@ -111,6 +116,7 @@ a.register-link:hover {
     background-color: #7B68EE;
 }
 
+/* Estilos do rodapé */
 footer {
     background-color: #220044;
     color: #fff;
@@ -132,10 +138,11 @@ footer {
     margin-top: 2vw;
 }
 
+/* Caixa de preços */
 .price-box {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
 }
 
 .crypto-price {
@@ -143,7 +150,7 @@ footer {
     border: 4px solid;
     border-radius: 15px;
     padding: 50px;
-    width: 23%;
+    width: 23%; /* Define a largura das caixas */
     margin-bottom: 20px;
     position: relative;
     text-align: center;
@@ -169,4 +176,55 @@ footer {
     margin: 0;
     font-size: 20px;
     color: #fff;
+}
+
+/* Media Queries para responsividade */
+
+/* Estilos para telas menores que 768px (mobile) */
+@media (max-width: 768px) {
+    header {
+        padding: 5%;
+    }
+
+    header h1 {
+        font-size: 7vw; /* Fonte aumenta em telas menores */
+    }
+
+    nav ul li {
+        display: block; /* Exibe itens em bloco (verticais) */
+        margin-bottom: 2%;
+    }
+
+    nav ul li a {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 2%;
+    }
+
+    .price-box {
+        flex-direction: column; /* Coloca os itens em coluna */
+    }
+
+    .crypto-price {
+        width: 100%; /* Largura total em telas menores */
+    }
+}
+
+/* Estilos para telas maiores que 768px (desktop) */
+@media (min-width: 769px) {
+    header h1 {
+        font-size: 3.5vw; /* Ajusta a fonte para telas maiores */
+    }
+
+    nav ul li {
+        display: inline-block;
+    }
+
+    .price-box {
+        flex-direction: row;
+    }
+
+    .crypto-price {
+        width: 23%; /* Mantém a largura em telas maiores */
+    }
 }
