@@ -70,7 +70,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Chama a função updatePrices a cada 1.5 segundos
     setInterval(updatePrices, 1500);
-
-    // Chama a função updatePrices uma vez imediatamente quando a página carrega
     updatePrices();
 });
