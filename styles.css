@@ -30,6 +30,13 @@ header h1 {
     transform-origin: center;
 }
 
+.content {
+    display: none;
+}
+#inicio.content {
+    display: block;
+}
+
 /* Estilos de navegação */
 nav {
     text-align: center;
@@ -228,3 +235,4 @@ footer {
         width: 23%; /* Mantém a largura em telas maiores */
     }
 }
+
