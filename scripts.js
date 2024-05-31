@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             const bitcoinPriceElement = document.getElementById('btc-price');
-            bitcoinPriceElement.textContent = `$ ${data.rate.toFixed(2)}`;
+            bitcoinPriceElement.textContent = ` ${data.rate.toFixed(2)}`;
         })
         .catch(error => console.error('Erro:', error));
 
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             const litecoinPriceElement = document.getElementById('ltc-price');
-            litecoinPriceElement.textContent = `$ ${data.rate.toFixed(2)}`;
+            litecoinPriceElement.textContent = ` ${data.rate.toFixed(2)}`;
         })
         .catch(error => console.error('Erro:', error));
 
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             const ethereumPriceElement = document.getElementById('ether-price');
-            ethereumPriceElement.textContent = `$ ${data.rate.toFixed(2)}`;
+            ethereumPriceElement.textContent = ` ${data.rate.toFixed(2)}`;
         })
         .catch(error => console.error('Erro:', error));
     }
