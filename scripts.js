@@ -19,17 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    const mouseLight = document.createElement("div");
-    mouseLight.classList.add("mouse-light");
-    document.body.appendChild(mouseLight);
-
-    document.addEventListener("mousemove", function (event) {
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;
-
-        mouseLight.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-    });
-
+    //API COIN + updatePrices
     function updatePrices() {
         fetch('https://rest.coinapi.io/v1/exchangerate/BTC/USD', {
             headers: {
@@ -68,7 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error('Erro:', error));
     }
 
-    // Chama a função updatePrices a cada 1.5 segundos
     setInterval(updatePrices, 1500);
     updatePrices();
 });
