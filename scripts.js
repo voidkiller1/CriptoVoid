@@ -68,8 +68,8 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error('Erro:', error));
     }
 
-    // Chama a função updatePrices a cada 3 segundos
-    setInterval(updatePrices, 3000);
+    // Chama a função updatePrices a cada 1.5 segundos
+    setInterval(updatePrices, 1500);
 
     // Chama a função updatePrices uma vez imediatamente quando a página carrega
     updatePrices();
