@@ -10,25 +10,36 @@ body {
 
 /* Estilo do cabeçalho */
 header {
-    background-color: #220044;
-    background-image: url('img/vazio.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 10%;
-    padding-bottom: 2%;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.6);
-    text-align: center;
-    position: relative;
-    color: #ffffff;
+    background-color: #220044; /* Cor de fundo do cabeçalho */
+    background-image: url('img/vazio.jpg'); /* Imagem de fundo */
+    background-size: cover; /* Ajuste do tamanho da imagem de fundo */
+    background-position: center; /* Posição da imagem de fundo */
+    padding: 1% 0; /* Espaçamento interno (10% acima e abaixo, 0 nos lados) */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.6); /* Sombra */
+    text-align: center; /* Alinhamento do texto */
+    position: relative; /* Posicionamento */
+    color: #ffffff; /* Cor do texto */
+    height: 30vh; /* Ajuste da altura do cabeçalho */
 }
 
+/* Título do cabeçalho */
 header h1 {
-    margin: 0;
-    font-size: 3.5vw;
-    margin-bottom: 1%;
-    animation: emergeBlackHole 5s infinite;
-    transform-origin: center;
+    margin: 0; /* Margens */
+    font-size: 3.5vw; /* Tamanho da fonte */
+    position: relative; /* Ajuste da posição do título */
+    top: 10%; /* Coloca o título no meio verticalmente */
+    transform: translateY(-50%); /* Centraliza o título verticalmente */
+    transform-origin: center; /* Transformação */
 }
+
+/* Estilo dos botões */
+.nav-link {
+    display: block; /* Torna os botões elementos de bloco */
+    margin: 100px auto; /* Margem para centralizar os botões horizontalmente */
+    
+}
+
+
 
 /* Estilos principais */
 main {
