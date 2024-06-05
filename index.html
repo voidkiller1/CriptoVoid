@@ -6,7 +6,9 @@
     <title>CriptoVoid</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="img/icon.png" type="image/png">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Biblioteca para gráficos -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   
 </head>
 <body>
     <header>
@@ -30,35 +32,41 @@
                 <div class="crypto-price" id="btc" data-crypto="BTC">
                     <img src="img/btc.png" alt="Ícone do Bitcoin (BTC)" class="crypto-icon">
                     <h3>Bitcoin (BTC)</h3>
-                    <p>$ <span id="btc-price">Carregando...</span></p>
+                    <p><span id="btc-price">Carregando...</span></p>
                 </div>
                 <div class="crypto-price" id="ltc" data-crypto="LTC">
                     <img src="img/ltc.png" alt="Ícone do Litecoin (LTC)" class="crypto-icon">
                     <h3>Litecoin (LTC)</h3>
-                    <p>$ <span id="ltc-price">Carregando...</span></p>
+                    <p><span id="ltc-price">Carregando...</span></p>
                 </div>
                 <div class="crypto-price" id="eth" data-crypto="ETH">
                     <img src="img/ether.png" alt="Ícone do Ethereum (ETH)" class="crypto-icon">
                     <h3>Ethereum (ETH)</h3>
-                    <p>$ <span id="eth-price">Carregando...</span></p>
+                    <p><span id="eth-price">Carregando...</span></p>
                 </div>
-            </div>           
+            </div>  
+            <div id="price-buttons" class="container">
+                <button id="usd-button" class="price-button" onclick="updatePrices()">USD</button>
+                <button id="brl-button" class="price-button" onclick="updatePricesBRL()">BRL</button>
+            </div>       
             <div class="card" id="crypto-chart-card" style="display: none;">
                 <h3 id="crypto-chart-title"></h3>
                 <canvas id="crypto-chart"></canvas>
             </div>
-            <div id="crypto-chart-card" class="chart-container">
+            <div class="chart-container">
                 <div class="chart">
                     <canvas id="crypto-chart"></canvas>
                 </div>
             </div>
             
+
+            
         </section>
+
+
         <section id="mineradoras" class="content">
             <div class="card">
                 <h2>Mineradoras de Criptomoedas</h2>
-                
-                <!-- Cartão do FreeBitco.in -->
                 <div class="card">
                     <h3>FreeBitco.in</h3>
                     <p>Ganhe bitcoins gratuitos através do FreeBitco.in, uma plataforma popular que oferece a oportunidade de ganhar bitcoins gratuitos através de várias atividades, como faucet, jogos e loterias.</p>
@@ -70,8 +78,6 @@
                     </ol>
                     <a href="https://freebitco.in/?r=1393623" target="_blank" class="register-link">Registrar-se no FreeBitco.in</a>
                 </div>
-                
-                <!-- Cartão do Unmineable -->
                 <div class="card">
                     <h3>Unmineable</h3>
                     <p>Use o Unmineable para minerar diversas criptomoedas de forma simples e eficiente.</p>
@@ -83,81 +89,88 @@
                     </ol>
                     <a href="https://unmineable.com/?ref=qcj7-j7kw" target="_blank" class="register-link">Cadastrar em Unmineable</a>
                 </div>
-                
             </div>
-        </section>
-        
-        <section id="bancos" class="content">
-            <div class="card">
-                <h2>Bancos de Criptomoedas</h2>
-                
-                <!-- Cartão do FaucetPay -->
-                <div class="card">
-                    <h3>FaucetPay</h3>
-                    <p>Utilize o FaucetPay como sua carteira de criptomoedas. O FaucetPay é uma plataforma de micropagamentos em criptomoedas, que permite armazenar, enviar e receber diferentes tipos de moedas digitais.</p>
-                    <p>Para começar a utilizar o FaucetPay, siga estes passos:</p>
-                    <ol>
-                        <li>Cadastre-se no FaucetPay clicando no botão abaixo.</li>
-                        <li>Complete o processo de registro e verificação da sua conta.</li>
-                        <li>Depois de criar sua conta, você pode começar a receber pagamentos e realizar transações em criptomoedas.</li>
-                    </ol>
-                    <a href="https://faucetpay.io/?r=1163015" target="_blank" class="register-link">Registrar-se no FaucetPay</a>
-                </div>
-                
-                <!-- Cartão do Mercado Bitcoin -->
-                <div class="card">
-                    <h3>Mercado Bitcoin</h3>
-                    <p>Utilize o Mercado Bitcoin como sua plataforma de gerenciamento de criptomoedas. O Mercado Bitcoin oferece uma interface amigável para armazenar, enviar e receber diversas moedas digitais.</p>
-                    <p>Para começar a utilizar o Mercado Bitcoin, siga estes passos:</p>
-                    <ol>
-                        <li>Cadastre-se no Mercado Bitcoin clicando no botão abaixo.</li>
-                        <li>Complete o processo de registro e verificação da sua conta.</li>
-                        <li>Depois de criar sua conta, você pode começar a receber pagamentos e realizar transações em criptomoedas.</li>
-                    </ol>
-                    <a href="https://conta.mercadobitcoin.com.br/cadastro?mgm_token=f21092a305fb3af45259e8d7e648b2c15ea7272d863f6cb19bbd67ffdcc151ee&utm_campaign=mgm&utm_source=link-copy&utm_medium=web" target="_blank" class="register-link">Cadastrar em MB</a>
-                </div>
-        
-            </div>
-        </section>
-        
-        <section id="script" class="content">
-            <div class="card">
-                <h2>Script</h2>
-                <p>Descubra uma variedade de scripts e dicas para maximizar seus ganhos com criptomoedas.</p>
-                
-                <!-- Cartão do FreeBitco.in Void 2024 -->
-                <div class="card">
-                    <h3>Tampermonkey</h3>
-                    <p>Tampermonkey é uma extensão grátis para seu navegador e o gerenciador mais popular de scripts de usuário para navegadores baseados em Blink e WebKit, tais como Chrome，Microsoft Edge，Safari，Opera Next e Firefox.</p>
-                    <p>Mesmo que alguns dos navegadores suportados tenham suporte nativo a scripts de usuário, o Tampermonkey lhe dá muito mais comodidade na gestão de seus scripts. Ele fornece recursos como a instalação fácil de scripts, verificação automática de atualizações, uma visão geral simples de que scripts estão rodando em um guia, um editor embutido e há uma boa chance de que os scripts incompatíveis rodem bem no Tampermonkey.</p>
-                    <ul>
-                        <li>Todos os script apresentados nesse site pode ser executador no Tampermonkey </li> 
-                    </ul>
-                    <a href="https://www.tampermonkey.net" target="_blank" class="register-link">Adicionar plug</a>
-                </div>
-                <div class="card">
-                    <h3>FreeBitco.in Void 2024</h3>
-                    <p>Use o script "FreeBitco.in Void 2024" para automatizar suas atividades no FreeBitco.in e aumentar seus ganhos.</p>
-                    <p>Para começar a usar o script, siga estes passos:</p>
-                    <ol>
-                        <li>Baixe o script clicando no botão abaixo.</li>
-                        <li>Siga as instruções fornecidas para instalar e configurar o script.</li>
-                        <li>Ative o script e deixe-o trabalhar para você, automatizando tarefas repetitivas.</li>
-                    </ol>
-                    <a href="https://greasyfork.org/en/scripts/493924-freebitco-in-void-2024" target="_blank" class="register-link">Baixar o Script</a>
-                </div>
-                
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2024 CriptoVoid. Colabore  BTC: 17jGRDbuMb5oxsjTG64FFB2Ax4BNBhqrV</p>
-    </footer>
-    <script src="scripts.js"></script>
-    <script src="api.js"></script>
-    
+
+    <section id="bancos" class="content">
+        <div class="card">
+            <h2>Bancos de Criptomoedas</h2>
+
+            <!-- Cartão do FaucetPay -->
+            <div class="card">
+                <h3>FaucetPay</h3>
+                <p>Utilize o FaucetPay como sua carteira de criptomoedas. O FaucetPay é uma plataforma de micropagamentos em criptomoedas, que permite armazenar, enviar e receber diferentes tipos de moedas digitais.</p>
+                <p>Para começar a utilizar o FaucetPay, siga estes passos:</p>
+                <ol>
+                    <li>Cadastre-se no FaucetPay clicando no botão abaixo.</li>
+                    <li>Complete o processo de registro e verificação da sua conta.</li>
+                    <li>Depois de criar sua conta, você pode começar a receber pagamentos e realizar transações em criptomoedas.</li>
+                </ol>
+                <a href="https://faucetpay.io/?r=1163015" target="_blank" class="register-link">Registrar-se no FaucetPay</a>
+            </div>
+
+            <!-- Cartão do Mercado Bitcoin -->
+            <div class="card">
+                <h3>Mercado Bitcoin</h3>
+                <p>Utilize o Mercado Bitcoin como sua plataforma de gerenciamento de criptomoedas. O Mercado Bitcoin oferece uma interface amigável para armazenar, enviar e receber diversas moedas digitais.</p>
+                <p>Para começar a utilizar o Mercado Bitcoin, siga estes passos:</p>
+                <ol>
+                    <li>Cadastre-se no Mercado Bitcoin clicando no botão abaixo.</li>
+                    <li>Complete o processo de registro e verificação da sua conta.</li>
+                    <li>Depois de criar sua conta, você pode começar a receber pagamentos e realizar transações em criptomoedas.</li>
+                </ol>
+                <a href="https://conta.mercadobitcoin.com.br/cadastro?mgm_token=f21092a305fb3af45259e8d7e648b2c15ea7272d863f6cb19bbd67ffdcc151ee&utm_campaign=mgm&utm_source=link-copy&utm_medium=web" target="_blank" class="register-link">Cadastrar em MB</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="script" class="content">
+        <div class="card">
+            <h2>Script</h2>
+            <p>Descubra uma variedade de scripts e dicas para maximizar seus ganhos com criptomoedas.</p>
+            <div class="card">
+                <h3>Tampermonkey</h3>
+                <p>Tampermonkey é uma extensão grátis para seu navegador e o gerenciador mais popular de scripts de usuário para navegadores baseados em Blink e WebKit, tais como Chrome，Microsoft Edge，Safari，Opera Next e Firefox.</p>
+                <p>Mesmo que alguns dos navegadores suportados tenham suporte nativo a scripts de usuário, o Tampermonkey lhe dá muito mais comodidade na gestão de seus scripts. Ele fornece recursos como a instalação fácil de scripts, verificação automática de atualizações, uma visão geral simples de que scripts estão rodando em um guia, um editor embutido e há uma boa chance de que os scripts incompatíveis rodem bem no Tampermonkey.</p>
+                <ul>
+                    <li>Todos os script apresentados nesse site pode ser executador no Tampermonkey </li> 
+                </ul>
+                <a href="https://www.tampermonkey.net" target="_blank" class="register-link">Adicionar plug</a>
+            </div>
+            <div class="card">
+                <h3>FreeBitco.in Void 2024</h3>
+                <p>Use o script "FreeBitco.in Void 2024" para automatizar suas atividades no FreeBitco.in e aumentar seus ganhos.</p>
+                <p>Para começar a usar o script, siga estes passos:</p>
+                <ol>
+                    <li>Baixe o script clicando no botão abaixo.</li>
+                    <li>Siga as instruções fornecidas para instalar e configurar o script.</li>
+                    <li>Ative o script e deixe-o trabalhar para você, automatizando tarefas repetitivas.</li>
+                </ol>
+                <a href="https://greasyfork.org/en/scripts/493924-freebitco-in-void-2024" target="_blank" class="register-link">Baixar o Script</a>
+            </div>
+        </div>
+    </section>
+
+
+</main>
+
+<footer id="footer">
+    <p>&copy; 2024 CriptoVoiD. Colabore BTC: 17jGRDbuMb5oxsjTG64FFB2Ax4BNBhqrV</p>
+    <a href="https://www.tiktok.com/@cripto_voidcla" target="_social" class="tiktok-button">
+        <img src="img/tktk.png" alt="TikTok">
+    </a>
+    <a href="https://www.youtube.com/@CriptoVoiD" target="_social" class="youtube-button">
+        <img src="img/yt.png" alt="YouTube">
+    </a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="scripts.js"></script>
 
 
 </body>
 </html>
+
