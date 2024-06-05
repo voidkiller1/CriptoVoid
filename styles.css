@@ -2,7 +2,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 0%;
     background: #110022;
     color: #ffffff;
     overflow-x: hidden;
@@ -43,7 +43,7 @@ header h1 {
 
 /* Estilos principais */
 main {
-    padding: 2%;
+    padding: 5%;
 }
 
 section.content {
