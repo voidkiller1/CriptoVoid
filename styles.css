@@ -1,87 +1,33 @@
 /* Estilos globais */
 body {
-    font-family: 'Roboto', sans-serif; /* Define a fonte para o site */
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background: #110022; /* Define o fundo da página */
-    color: #ffffff; /* Define a cor do texto */
-    overflow-x: hidden; /* Evita rolagem horizontal */
+    background: #110022;
+    color: #ffffff;
+    overflow-x: hidden;
 }
 
 /* Estilo do cabeçalho */
 header {
     background-color: #220044;
-    background-image: url('img/vazio.jpg'); /* Imagem de fundo */
-    background-size: cover; /* Cobre toda a área do cabeçalho */
-    background-position: center; /* Centraliza a imagem de fundo */
-    padding: 10%; /* Espaçamento interno */
+    background-image: url('img/vazio.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 10%;
     padding-bottom: 2%;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.6); /* Sombra do cabeçalho */
-    text-align: center; /* Centraliza o texto */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.6);
+    text-align: center;
     position: relative;
     color: #ffffff;
 }
 
 header h1 {
     margin: 0;
-    font-size: 3.5vw; /* Fonte relativa ao viewport */
+    font-size: 3.5vw;
     margin-bottom: 1%;
-    animation: emergeBlackHole 5s infinite; /* Animação */
+    animation: emergeBlackHole 5s infinite;
     transform-origin: center;
-}
-
-.content {
-    display: none;
-}
-#inicio.content {
-    display: block;
-}
-
-/* Estilos de navegação */
-nav {
-    text-align: center;
-}
-
-nav ul {
-    list-style-type: none; /* Remove marcadores da lista */
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    display: inline; /* Exibe os itens da lista em linha */
-    margin-right: 10%;
-}
-
-@keyframes colorChange {
-    0% {
-        background-color: #6600cc; /* Roxo */
-    }
-    75% {
-        background-color: #0000ff; /* Azul */
-    }
-    100% {
-        background-color: #6600cc; /* Volta para Roxo */
-    }
-}
-
-nav ul li a {
-    text-decoration: none; /* Remove sublinhado */
-    color: #fff;
-    padding: 5% 5%;
-    border-radius: 5px;
-    animation: colorChange 2s infinite; /* Animação */
-    transition: transform 0.3s ease; /* Transições */
-}
-
-nav ul li a:hover {
-    transform: scale(1.1); /* Efeito de hover */
-}
-
-
-nav ul li a:hover {
-    background-color: #7B68EE;
-    transform: scale(1.1);
 }
 
 /* Estilos principais */
@@ -92,6 +38,41 @@ main {
 section.content {
     margin-bottom: 3vw;
 }
+
+.content {
+    display: none;
+}
+
+#inicio.content {
+    display: block;
+}
+
+.chart-container {
+    height: 100%; 
+    width: 100%; 
+}
+
+.chart {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#crypto-chart-card {
+    display: block;
+    margin: auto;
+    width: 50%; 
+    height: 20%; 
+    max-height: 600px; /
+}
+
+#crypto-chart {
+    width: 100%;
+    height: 100%;
+}
+
+
+
 
 .card {
     background-color: #1a1a1a;
@@ -105,13 +86,13 @@ section.content {
 .card h2 {
     margin-top: 0;
     color: #fff;
-    font-size: 2vw; /* Fonte relativa ao viewport */
+    font-size: 2vw;
 }
 
 .card h3 {
     margin-top: 0;
     color: #fff;
-    font-size: 1.5vw; /* Fonte relativa ao viewport */
+    font-size: 1.5vw;
 }
 
 .card p {
@@ -122,6 +103,40 @@ section.content {
 .card ol {
     margin-bottom: 2vw;
     padding-left: 2%;
+}
+
+.card + .card {
+    margin-top: 2vw;
+}
+
+/* Estilos de navegação */
+nav {
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10%;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5% 5%;
+    border-radius: 5px;
+    animation: colorChange 2s infinite;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #7B68EE;
+    transform: scale(1.1);
 }
 
 /* Link de registro */
@@ -148,25 +163,11 @@ footer {
     padding: 2%;
 }
 
-.card h3 {
-    margin-top: 0;
-    color: #fff;
-    font-size: 1.5vw;
-}
-
-.card ol {
-    padding-left: 1.5%;
-}
-
-.card + .card {
-    margin-top: 2vw;
-}
-
 /* Caixa de preços */
 .price-box {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    flex-wrap: wrap;
 }
 
 .crypto-price {
@@ -174,11 +175,12 @@ footer {
     border: 4px solid;
     border-radius: 15px;
     padding: 50px;
-    width: 23%; /* Define a largura das caixas */
+    width: 23%;
     margin-bottom: 20px;
     position: relative;
     text-align: center;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .crypto-info {
@@ -192,30 +194,28 @@ footer {
 
 .crypto-price h3 {
     margin: 0;
-    font-size: 10px;
+    font-size: 20px;
     color: #fff;
 }
 
 .crypto-price p {
     margin: 0;
-    font-size: 20px;
+    font-size: 30px;
     color: #fff;
 }
 
 /* Media Queries para responsividade */
-
-/* Estilos para telas menores que 768px (mobile) */
 @media (max-width: 768px) {
     header {
         padding: 5%;
     }
 
     header h1 {
-        font-size: 7vw; /* Fonte aumenta em telas menores */
+        font-size: 7vw;
     }
 
     nav ul li {
-        display: block; /* Exibe itens em bloco (verticais) */
+        display: block;
         margin-bottom: 2%;
     }
 
@@ -226,18 +226,17 @@ footer {
     }
 
     .price-box {
-        flex-direction: column; /* Coloca os itens em coluna */
+        flex-direction: column;
     }
 
     .crypto-price {
-        width: 100%; /* Largura total em telas menores */
+        width: 100%;
     }
 }
 
-/* Estilos para telas maiores que 768px (desktop) */
 @media (min-width: 769px) {
     header h1 {
-        font-size: 3.5vw; /* Ajusta a fonte para telas maiores */
+        font-size: 3.5vw;
     }
 
     nav ul li {
@@ -249,7 +248,19 @@ footer {
     }
 
     .crypto-price {
-        width: 23%; /* Mantém a largura em telas maiores */
+        width: 23%;
     }
 }
 
+/* Animações */
+@keyframes colorChange {
+    0% {
+        background-color: #6600cc;
+    }
+    75% {
+        background-color: #0000ff;
+    }
+    100% {
+        background-color: #6600cc;
+    }
+}

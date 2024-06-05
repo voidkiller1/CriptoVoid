@@ -6,6 +6,7 @@
     <title>CriptoVoid</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="img/icon.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Biblioteca para gráficos -->
 </head>
 <body>
     <header>
@@ -22,27 +23,36 @@
     
     <main>
         <section id="inicio" class="content">
-
             <h2>Bem-vindo à CriptoVoid</h2>
             <p>Descubra o Universo das Criptomoedas com a CriptoVoid. Na CriptoVoid, nossa missão é simplificar o mundo das criptomoedas para todos, desde iniciantes até investidores experientes. Entendemos que o universo das criptomoedas pode parecer um espaço vasto e desconhecido, e é por isso que estamos aqui para guiá-lo através de cada passo dessa jornada emocionante.</p>
 
             <div class="price-box">
-                <div class="crypto-price btc">
+                <div class="crypto-price" id="btc" data-crypto="BTC">
                     <img src="img/btc.png" alt="Ícone do Bitcoin (BTC)" class="crypto-icon">
                     <h3>Bitcoin (BTC)</h3>
                     <p>$ <span id="btc-price">Carregando...</span></p>
                 </div>
-                <div class="crypto-price ltc">
+                <div class="crypto-price" id="ltc" data-crypto="LTC">
                     <img src="img/ltc.png" alt="Ícone do Litecoin (LTC)" class="crypto-icon">
                     <h3>Litecoin (LTC)</h3>
                     <p>$ <span id="ltc-price">Carregando...</span></p>
                 </div>
-                <div class="crypto-price ether">
+                <div class="crypto-price" id="eth" data-crypto="ETH">
                     <img src="img/ether.png" alt="Ícone do Ethereum (ETH)" class="crypto-icon">
                     <h3>Ethereum (ETH)</h3>
-                    <p>$ <span id="ether-price">Carregando...</span></p>
+                    <p>$ <span id="eth-price">Carregando...</span></p>
+                </div>
+            </div>           
+            <div class="card" id="crypto-chart-card" style="display: none;">
+                <h3 id="crypto-chart-title"></h3>
+                <canvas id="crypto-chart"></canvas>
+            </div>
+            <div id="crypto-chart-card" class="chart-container">
+                <div class="chart">
+                    <canvas id="crypto-chart"></canvas>
                 </div>
             </div>
+            
         </section>
         <section id="mineradoras" class="content">
             <div class="card">
@@ -118,11 +128,12 @@
                 <!-- Cartão do FreeBitco.in Void 2024 -->
                 <div class="card">
                     <h3>Tampermonkey</h3>
-                    <p>Tampermonkey é uma extensão grátis para seu navegador e o gerenciados mais popular de scripts de usuário para navegadores baseados em Blink e WebKit, tais como Chrome，Microsoft Edge，Safari，Opera Next e Firefox.
-
-                        Mesmo que alguns dos navegadores suportados tenham suporte nativo a scripts de usuário, o Tampermonkey lhe dá muito mais comodidade na gestão de seus scripts. Ele fornece recursos como a instalação fácil de scripts, verificação automática de atualizações, uma visão geral simples de que scripts estão rodando em um guia, um editor embutido e há uma boa chance de que os scripts incompatíveis rodem bem no Tampermonkey.</p>
-                     <li>Todos os script apresentados nesse site pode ser executador no Tampermonkey </li> 
-                     <a href="https://www.tampermonkey.net" target="_blank" class="register-link">Adicionar plug</a>
+                    <p>Tampermonkey é uma extensão grátis para seu navegador e o gerenciador mais popular de scripts de usuário para navegadores baseados em Blink e WebKit, tais como Chrome，Microsoft Edge，Safari，Opera Next e Firefox.</p>
+                    <p>Mesmo que alguns dos navegadores suportados tenham suporte nativo a scripts de usuário, o Tampermonkey lhe dá muito mais comodidade na gestão de seus scripts. Ele fornece recursos como a instalação fácil de scripts, verificação automática de atualizações, uma visão geral simples de que scripts estão rodando em um guia, um editor embutido e há uma boa chance de que os scripts incompatíveis rodem bem no Tampermonkey.</p>
+                    <ul>
+                        <li>Todos os script apresentados nesse site pode ser executador no Tampermonkey </li> 
+                    </ul>
+                    <a href="https://www.tampermonkey.net" target="_blank" class="register-link">Adicionar plug</a>
                 </div>
                 <div class="card">
                     <h3>FreeBitco.in Void 2024</h3>
@@ -144,6 +155,8 @@
         <p>&copy; 2024 CriptoVoid. Colabore  BTC: 17jGRDbuMb5oxsjTG64FFB2Ax4BNBhqrV</p>
     </footer>
     <script src="scripts.js"></script>
+    <script src="api.js"></script>
+    
 
 
 </body>
