@@ -119,19 +119,19 @@ nav ul li a:hover {
 
 @keyframes LinhasRGB {
   0% {
-    border-color: #a5089d; 
+    border-color: #7013e9; 
   }
   25% {
-    border-color: #0011ff; 
+    border-color: #861ee7; 
   }
   50% {
-    border-color: #3b078f; 
+    border-color: #8e05b8; 
   }
   75% {
     border-color: #7f12e6; 
   }
   100% {
-    border-color: #8503a5; 
+    border-color: #5a026b; 
   }
 }
 
