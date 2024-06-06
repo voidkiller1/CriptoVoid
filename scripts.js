@@ -1,3 +1,9 @@
+res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate'); // Para sempre solicitar a versão mais recente do recurso ao servidor
+res.setHeader('Pragma', 'no-cache'); // Para evitar o cache em navegadores antigos que não suportam o Cache-Control
+res.setHeader('Expires', '0'); // Para indicar que o recurso expirou imediatamente e não deve ser armazenado em cache
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     // Navegação entre seções
     document.querySelectorAll('.nav-link').forEach(link => {
