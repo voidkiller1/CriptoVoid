@@ -11,6 +11,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    //footer scroll
+    document.addEventListener('scroll', function() {
+        var footer = document.getElementById('footer');
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) { // Ajuste para garantir a visibilidade do rodapé
+            footer.style.visibility = 'visible';
+            footer.style.opacity = '1';
+        } else {
+            footer.style.visibility = 'hidden';
+            footer.style.opacity = '0';
+        }
+    });
+    
+    
+
     // Evento de clique nos elementos .crypto-price
     document.querySelectorAll('.crypto-price').forEach(priceBox => {
         priceBox.addEventListener('click', function () {
@@ -68,21 +82,4 @@ async function showCryptoChart(crypto) {
     } else {
         console.error('Failed to fetch crypto history');
     }
-}
-
-// Função para buscar o histórico de preços da criptomoeda
-async function fetchCryptoHistory(crypto, startDate, endDate) {
-    const response = await fetch(`https://rest.coinapi.io/v1/exchangerate/${crypto}/USD/history?period_id=1DAY&time_start=${startDate}&time_end=${endDate}`, {
-        headers: {
-            'X-CoinAPI-Key': 'A87977FA-9FC3-4A03-8BC1-68EF634735AB'
-        }
-    });
-
-    if (!response.ok) {
-        console.error('Failed to fetch crypto history');
-        return;
-    }
-
-    const data = await response.json();
-    return data;
 }

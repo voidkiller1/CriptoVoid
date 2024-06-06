@@ -6,7 +6,7 @@
     <title>CriptoVoid</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="img/icon.png" type="image/png">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Biblioteca para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -30,35 +30,40 @@
                 <div class="crypto-price" id="btc" data-crypto="BTC">
                     <img src="img/btc.png" alt="Ícone do Bitcoin (BTC)" class="crypto-icon">
                     <h3>Bitcoin (BTC)</h3>
-                    <p>$ <span id="btc-price">Carregando...</span></p>
+                    <p><span id="btc-price">Carregando...</span></p>
                 </div>
                 <div class="crypto-price" id="ltc" data-crypto="LTC">
                     <img src="img/ltc.png" alt="Ícone do Litecoin (LTC)" class="crypto-icon">
                     <h3>Litecoin (LTC)</h3>
-                    <p>$ <span id="ltc-price">Carregando...</span></p>
+                    <p><span id="ltc-price">Carregando...</span></p>
                 </div>
                 <div class="crypto-price" id="eth" data-crypto="ETH">
                     <img src="img/ether.png" alt="Ícone do Ethereum (ETH)" class="crypto-icon">
                     <h3>Ethereum (ETH)</h3>
-                    <p>$ <span id="eth-price">Carregando...</span></p>
+                    <p><span id="eth-price">Carregando...</span></p>
                 </div>
-            </div>           
+            </div>  
+            <div id="price-buttons" class="container">
+                <button id="usd-button" class="price-button" onclick="updatePrices()">USD</button>
+                <button id="brl-button" class="price-button" onclick="updatePricesBRL()">BRL</button>
+            </div>       
             <div class="card" id="crypto-chart-card" style="display: none;">
                 <h3 id="crypto-chart-title"></h3>
                 <canvas id="crypto-chart"></canvas>
             </div>
-            <div id="crypto-chart-card" class="chart-container">
+            <div class="chart-container">
                 <div class="chart">
                     <canvas id="crypto-chart"></canvas>
                 </div>
             </div>
             
+
+            
         </section>
+
         <section id="mineradoras" class="content">
             <div class="card">
                 <h2>Mineradoras de Criptomoedas</h2>
-                
-                <!-- Cartão do FreeBitco.in -->
                 <div class="card">
                     <h3>FreeBitco.in</h3>
                     <p>Ganhe bitcoins gratuitos através do FreeBitco.in, uma plataforma popular que oferece a oportunidade de ganhar bitcoins gratuitos através de várias atividades, como faucet, jogos e loterias.</p>
@@ -70,8 +75,6 @@
                     </ol>
                     <a href="https://freebitco.in/?r=1393623" target="_blank" class="register-link">Registrar-se no FreeBitco.in</a>
                 </div>
-                
-                <!-- Cartão do Unmineable -->
                 <div class="card">
                     <h3>Unmineable</h3>
                     <p>Use o Unmineable para minerar diversas criptomoedas de forma simples e eficiente.</p>
@@ -86,8 +89,8 @@
                 
             </div>
         </section>
-        
-        <section id="bancos" class="content">
+
+         <section id="bancos" class="content">
             <div class="card">
                 <h2>Bancos de Criptomoedas</h2>
                 
@@ -124,8 +127,6 @@
             <div class="card">
                 <h2>Script</h2>
                 <p>Descubra uma variedade de scripts e dicas para maximizar seus ganhos com criptomoedas.</p>
-                
-                <!-- Cartão do FreeBitco.in Void 2024 -->
                 <div class="card">
                     <h3>Tampermonkey</h3>
                     <p>Tampermonkey é uma extensão grátis para seu navegador e o gerenciador mais popular de scripts de usuário para navegadores baseados em Blink e WebKit, tais como Chrome，Microsoft Edge，Safari，Opera Next e Firefox.</p>
@@ -149,11 +150,19 @@
                 
             </div>
         </section>
+
     </main>
 
-    <footer>
-        <p>&copy; 2024 CriptoVoid. Colabore  BTC: 17jGRDbuMb5oxsjTG64FFB2Ax4BNBhqrV</p>
+    <footer id="footer">
+        <p>&copy; 2024 CriptoVoiD. Colabore BTC: 17jGRDbuMb5oxsjTG64FFB2Ax4BNBhqrV</p>
+        <a href="https://www.tiktok.com/@cripto_voidcla" target="_social" class="tiktok-button">
+            <img src="img/tktk.png" alt="TikTok">
+        </a>
+        <a href="https://www.youtube.com/@CriptoVoiD" target="_social" class="youtube-button">
+            <img src="img/yt.png" alt="YouTube">
+        </a>
     </footer>
+    
     <script src="scripts.js"></script>
     <script src="api.js"></script>
     

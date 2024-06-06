@@ -2,24 +2,24 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    padding: 0%;
+    padding: 3%; /* Adicionando padding de 3% ao body */
     background: #110022;
     color: #ffffff;
     overflow-x: hidden;
 }
 
-/* Estilo do cabeçalho */
 header {
     background-color: #220044; /* Cor de fundo do cabeçalho */
     background-image: url('img/vazio.jpg'); /* Imagem de fundo */
     background-size: cover; /* Ajuste do tamanho da imagem de fundo */
     background-position: center; /* Posição da imagem de fundo */
-    padding: 1% 0; /* Espaçamento interno (10% acima e abaixo, 0 nos lados) */
+    padding: 1% 0; /* Espaçamento interno (1% acima e abaixo, 0 nos lados) */
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.6); /* Sombra */
     text-align: center; /* Alinhamento do texto */
     position: relative; /* Posicionamento */
     color: #ffffff; /* Cor do texto */
     height: 30vh; /* Ajuste da altura do cabeçalho */
+    margin: -3% -3% 3% -3%; /* Remove o padding do body para o header e mantém o espaçamento inferior */
 }
 
 /* Título do cabeçalho */
@@ -27,7 +27,7 @@ header h1 {
     margin: 0; /* Margens */
     font-size: 3.5vw; /* Tamanho da fonte */
     position: relative; /* Ajuste da posição do título */
-    top: 10%; /* Coloca o título no meio verticalmente */
+    top: 50%; /* Coloca o título no meio verticalmente */
     transform: translateY(-50%); /* Centraliza o título verticalmente */
     transform-origin: center; /* Transformação */
 }
@@ -36,14 +36,11 @@ header h1 {
 .nav-link {
     display: block; /* Torna os botões elementos de bloco */
     margin: 100px auto; /* Margem para centralizar os botões horizontalmente */
-    
 }
-
-
 
 /* Estilos principais */
 main {
-    padding: 5%;
+    padding: 3%;
 }
 
 section.content {
@@ -74,7 +71,7 @@ section.content {
     margin: auto;
     width: 50%; 
     height: 20%; 
-    max-height: 600px; /
+    max-height: 600px;
 }
 
 #crypto-chart {
@@ -154,13 +151,7 @@ a.register-link:hover {
     background-color: #7B68EE;
 }
 
-/* Estilos do rodapé */
-footer {
-    background-color: #220044;
-    color: #fff;
-    text-align: center;
-    padding: 2%;
-}
+
 
 /* Caixa de preços */
 .price-box {
@@ -202,6 +193,31 @@ footer {
     font-size: 30px;
     color: #fff;
 }
+
+
+.container {
+    text-align: center; /* Centraliza os elementos filhos horizontalmente */
+}
+
+.price-button {
+    padding: 10px 20px;
+    background-color: #7835b8; /* Cor de fundo do botão */
+    color: rgb(255, 252, 252); /* Cor do texto do botão */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Adiciona cantos arredondados */
+    cursor: pointer; /* Muda o cursor ao passar por cima */
+    transition: background-color 0.3s; /* Adiciona uma transição suave */
+    display: inline-block; /* Torna os botões em linha */
+    width: fit-content; /* Ajusta a largura ao conteúdo */
+    margin: 0 10px; /* Adiciona um espaço entre os botões */
+}
+
+.price-button:hover {
+    background-color: #66069e; /* Cor de fundo do botão ao passar o mouse */
+}
+
+
+
 
 /* Media Queries para responsividade */
 @media (max-width: 768px) {
@@ -251,3 +267,59 @@ footer {
     }
 }
 
+
+/* Estilos do rodapé */
+#footer {
+    position: relative;
+    background-color: #450285d2;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    visibility: hidden; /* Esconder o rodapé inicialmente */
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear; /* Transição suave */
+}
+
+/* Estilos comuns para os botões */
+.tiktok-button, .youtube-button {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+/* Estilos específicos para o botão do TikTok */
+.tiktok-button {
+    right: 60px;
+    background-color: #000;
+}
+
+.tiktok-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.tiktok-button:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos específicos para o botão do YouTube */
+.youtube-button {
+    right: 10px;
+    background-color: #FF0000;
+}
+
+.youtube-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.youtube-button:hover {
+    transform: scale(1.1);
+}

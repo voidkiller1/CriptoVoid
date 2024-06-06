@@ -1,68 +1,102 @@
-//API COIN + updatePrices
-function updatePrices() {
-    fetch('https://rest.coinapi.io/v1/exchangerate/BTC/USD', {
-        headers: {
-            'X-CoinAPI-Key': 'A87977FA-9FC3-4A03-8BC1-68EF634735AB'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        const bitcoinPriceElement = document.getElementById('btc-price');
-        bitcoinPriceElement.textContent = ` ${data.rate.toFixed(2)}`;
-    })
-    .catch(error => console.error('Erro:', error));
+// Definição da URL da API e chave de acesso
+const apiUrl = 'https://rest.coinapi.io/v1';
+const apiKey = 'A87977FA-9FC3-4A03-8BC1-68EF634735AB';
 
-    fetch('https://rest.coinapi.io/v1/exchangerate/LTC/USD', {
-        headers: {
-            'X-CoinAPI-Key': 'A87977FA-9FC3-4A03-8BC1-68EF634735AB'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        const litecoinPriceElement = document.getElementById('ltc-price');
-        litecoinPriceElement.textContent = ` ${data.rate.toFixed(2)}`;
-    })
-    .catch(error => console.error('Erro:', error));
-
-    fetch('https://rest.coinapi.io/v1/exchangerate/ETH/USD', {
-        headers: {
-            'X-CoinAPI-Key': 'A87977FA-9FC3-4A03-8BC1-68EF634735AB'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        const ethereumPriceElement = document.getElementById('ether-price');
-        ethereumPriceElement.textContent = ` ${data.rate.toFixed(2)}`;
-    })
-    .catch(error => console.error('Erro:', error));
+// Função para buscar e atualizar os preços das moedas em uma determinada moeda base (USD ou BRL)
+function updatePrices(baseCurrency) {
+    // Mapeia as moedas desejadas e faz uma requisição para cada uma
+    const currencies = ['BTC', 'LTC', 'ETH'];
+    currencies.forEach(currency => {
+        fetch(`${apiUrl}/exchangerate/${currency}/${baseCurrency}`, {
+            headers: {
+                'X-CoinAPI-Key': apiKey
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao buscar os preços das moedas');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Atualiza os elementos HTML com os novos preços
+            const priceElement = document.getElementById(`${currency.toLowerCase()}-price`);
+            const price = data.rate.toFixed(2);
+            priceElement.textContent = `${baseCurrency === 'BRL' ? 'R$ ' : (baseCurrency === 'USD' ? '$' : '')}${price}`;
+        })
+        .catch(error => console.error('Erro:', error));
+    });
 }
 
-setInterval(updatePrices, 1500);
-updatePrices();
+// Função para iniciar o intervalo de atualização de preços
+function startInterval(func) {
+    return setInterval(func, 1500);
+}
 
-const marketDataApiUrl = 'https://rest.coinapi.io';
-const apiKey = 'A87977FA-9FC3-4A03-8BC1-68EF634735AB'; 
+// Função para parar o intervalo de atualização de preços
+function stopInterval(intervalID) {
+    clearInterval(intervalID);
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    const btcDiv = document.querySelector('.crypto-price.btc');
-    const ltcDiv = document.querySelector('.crypto-price.ltc');
-    const etherDiv = document.querySelector('.crypto-price.ether');
-    
-    btcDiv.addEventListener('click', () => displayChart('BTC'));
-    ltcDiv.addEventListener('click', () => displayChart('LTC'));
-    etherDiv.addEventListener('click', () => displayChart('ETH'));
+// Event listeners para os botões de USD e BRL
+document.getElementById('usd-button').addEventListener('click', () => {
+    // Para o intervalo atual e inicia um novo para atualizar os preços em USD
+    stopInterval(intervalID);
+    intervalID = startInterval(() => updatePrices('USD'));
 });
 
-async function displayChart(symbol) {
+document.getElementById('brl-button').addEventListener('click', () => {
+    // Para o intervalo atual e inicia um novo para atualizar os preços em BRL
+    stopInterval(intervalID);
+    intervalID = startInterval(() => updatePrices('BRL'));
+});
+
+// Inicia o intervalo de atualização de preços em USD por padrão
+let intervalID = startInterval(() => updatePrices('USD'));
+
+
+// Função para buscar o histórico de preços da criptomoeda
+async function fetchCryptoHistory(crypto, startDate, endDate) {
+    const response = await fetch(`https://rest.coinapi.io/v1/exchangerate/${crypto}/USD/history?period_id=1DAY&time_start=${startDate}&time_end=${endDate}`, {
+        headers: {
+            'X-CoinAPI-Key': 'A87977FA-9FC3-4A03-8BC1-68EF634735AB'
+        }
+    });
+
+    if (!response.ok) {
+        console.error('Failed to fetch crypto history');
+        return;
+    }
+
+    const data = await response.json();
+    return data;
+}
+
+// Event listeners para os botões de USD e BRL
+document.getElementById('usd-button').addEventListener('click', () => {
+    // Para o intervalo atual e inicia um novo para atualizar os preços em USD
+    stopInterval(intervalID);
+    intervalID = startInterval(() => updatePrices('USD'));
+    displayChart('USD'); // Atualiza o gráfico para exibir dados em USD
+});
+
+document.getElementById('brl-button').addEventListener('click', () => {
+    // Para o intervalo atual e inicia um novo para atualizar os preços em BRL
+    stopInterval(intervalID);
+    intervalID = startInterval(() => updatePrices('BRL'));
+    displayChart('BRL'); // Atualiza o gráfico para exibir dados em BRL
+});
+
+async function displayChart(currency) {
     const chartContainer = document.getElementById('chart-container');
-    chartContainer.style.display = 'block'; // 
+    chartContainer.style.display = 'block';
     
-    const data = await fetchMarketData(symbol);
+    const data = await fetchMarketData(currency);
     renderChart(data);
 }
 
-async function fetchMarketData(symbol) {
-    const url = `${marketDataApiUrl}/v1/exchangerate/${symbol}/USD/history?period_id=1DAY&time_start=2022-01-01T00:00:00`;
+async function fetchMarketData(currency) {
+    const url = `${marketDataApiUrl}/v1/exchangerate/BTC/${currency}/history?period_id=1DAY&time_start=2022-01-01T00:00:00`;
     
     const response = await fetch(url, {
         headers: {
@@ -90,7 +124,7 @@ function renderChart(data) {
         data: {
             labels: labels,
             datasets: [{
-                label: 'Price (USD)',
+                label: 'Price',
                 data: prices,
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
@@ -110,63 +144,10 @@ function renderChart(data) {
                     display: true,
                     title: {
                         display: true,
-                        text: 'Price (USD)'
+                        text: 'Price'
                     }
                 }
             }
         }
     });
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    fetchCryptoPrices();
-
-    setInterval(fetchCryptoPrices, 3000); // Atualiza os preços a cada 3 segundos
-});
-
-function fetchCryptoPrices() {
-    const coinApiKey = 'A87977FA-9FC3-4A03-8BC1-68EF634735AB'; 
-    const coinApiUrl = 'https://rest.coinapi.io';
-   
-    fetch('https://api.coincap.io/v2/assets')
-        .then(response => response.json())
-        .then(data => {
-            const btc = data.data.find(crypto => crypto.symbol === 'BTC');
-            const ltc = data.data.find(crypto => crypto.symbol === 'LTC');
-            const eth = data.data.find(crypto => crypto.symbol === 'ETH');
-
-            document.getElementById('btc-price').textContent = parseFloat(btc.priceUsd).toFixed(2);
-            document.getElementById('ltc-price').textContent = parseFloat(ltc.priceUsd).toFixed(2);
-            document.getElementById('eth-price').textContent = parseFloat(eth.priceUsd).toFixed(2);
-
-            // Atualiza gráfico
-            updateChart(btc, ltc, eth);
-        })
-        .catch(error => console.error('Erro ao buscar preços das criptomoedas:', error));
-}
-
-function updateChart(btc, ltc, eth) {
-    const ctx = document.getElementById('priceChart').getContext('2d');
-    const chart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['BTC', 'LTC', 'ETH'],
-            datasets: [{
-                label: 'Preço em USD',
-                data: [btc.priceUsd, ltc.priceUsd, eth.priceUsd],
-                backgroundColor: 'rgba(0, 123, 255, 0.2)',
-                borderColor: 'rgba(0, 123, 255, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    document.getElementById('chart-container').style.display = 'block';
 }
