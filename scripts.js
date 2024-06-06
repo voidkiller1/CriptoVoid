@@ -1,6 +1,3 @@
-res.setHeader('Pragma', 'no-cache'); // Para evitar o cache em navegadores antigos que não suportam o Cache-Control
-
-
 
 document.addEventListener('DOMContentLoaded', function () {
     // Navegação entre seções
