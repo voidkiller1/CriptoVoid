@@ -1,4 +1,4 @@
-res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate'); // Para sempre solicitar a versão mais recente do recurso ao servidor
+res.setHeader('Pragma', 'no-cache'); // Para evitar o cache em navegadores antigos que não suportam o Cache-Control
 
 
 
